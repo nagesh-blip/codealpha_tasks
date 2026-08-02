@@ -126,7 +126,13 @@ REST_FRAMEWORK = {
 
 # CORS: allow the plain frontend (opened from any origin / Live Server / file)
 # to make fetch() requests to this API. Fine for a learning project.
-CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOWED_ORIGINS = [
+    "https://codealpha-tasks-o7pu.vercel.app",
+]
+
+CSRF_TRUSTED_ORIGINS = [
+    "https://codealpha-tasks-o7pu.vercel.app",
+]
 
 # Limit uploaded image size to 5 MB
 FILE_UPLOAD_MAX_MEMORY_SIZE = 5 * 1024 * 1024
