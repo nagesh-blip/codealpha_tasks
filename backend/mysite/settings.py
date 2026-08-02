@@ -127,10 +127,12 @@ REST_FRAMEWORK = {
 # CORS: allow the plain frontend (opened from any origin / Live Server / file)
 # to make fetch() requests to this API. Fine for a learning project.
 CORS_ALLOWED_ORIGINS = [
+    "https://codealpha-tasks-five-lac.vercel.app",
     "https://codealpha-tasks-o7pu.vercel.app",
 ]
 
 CSRF_TRUSTED_ORIGINS = [
+    "https://codealpha-tasks-five-lac.vercel.app",
     "https://codealpha-tasks-o7pu.vercel.app",
 ]
 
