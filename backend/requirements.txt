@@ -4,7 +4,7 @@ django-cors-headers==4.3.1
 djangorestframework==3.15.1
 gunicorn==26.0.0
 packaging==26.2
-pillow @ file:///home/builder/.termux-build/python-pillow/src
+pillow
 setuptools==83.0.0
 sqlparse==0.5.5
 tzdata==2026.3
