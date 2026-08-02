@@ -15,7 +15,8 @@ export function getAuthToken() {
 }
 
 export function saveSession(token, username) {
-  localStorage.setItem('authToken', token);
+  localStorage.setItem('authToken', token);0
+
   localStorage.setItem('currentUsername', username);
 }
 
