@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MiniSocial - Profile</title>
+
+  <link rel="stylesheet" href="styles/shared/reset.css">
+  <link rel="stylesheet" href="styles/shared/variables.css">
+  <link rel="stylesheet" href="styles/shared/header.css">
+  <link rel="stylesheet" href="styles/shared/components.css">
+  <link rel="stylesheet" href="styles/pages/home.css">
+  <link rel="stylesheet" href="styles/pages/profile.css">
+</head>
+<body>
+
+  <header class="header">
+    <div class="header-content">
+      <a href="index.html" class="header-logo">MiniSocial</a>
+
+      <div class="header-search">
+        <input
+          type="text"
+          class="header-search-input"
+          id="js-search-input"
+          placeholder="Search users..."
+          autocomplete="off"
+        >
+        <div class="header-search-results" id="js-search-results"></div>
+      </div>
+
+      <nav class="header-nav">
+        <a href="index.html" class="header-nav-link">Home</a>
+        <a href="profile.html" class="header-nav-link" id="js-my-profile-link">Profile</a>
+        <button class="header-logout-button" id="js-logout-button">Log Out</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page-content">
+
+    <div class="error-banner" id="js-error-banner"></div>
+
+    <div class="spinner" id="js-loading-spinner"></div>
+
+    <section class="profile-header" id="js-profile-header" style="display:none;">
+      <img class="profile-avatar" id="js-profile-avatar" alt="Profile picture">
+
+      <div class="profile-info">
+        <div class="profile-username-row">
+          <span class="profile-username" id="js-profile-username"></span>
+          <button class="profile-follow-button" id="js-follow-button" style="display:none;"></button>
+          <button class="profile-edit-button" id="js-edit-profile-button" style="display:none;">Edit Profile</button>
+        </div>
+
+        <p class="profile-bio" id="js-profile-bio"></p>
+
+        <div class="profile-stats">
+          <div>
+            <span class="profile-stat-value" id="js-posts-count">0</span>
+            <span class="profile-stat-label">Posts</span>
+          </div>
+          <div>
+            <span class="profile-stat-value" id="js-followers-count">0</span>
+            <span class="profile-stat-label">Followers</span>
+          </div>
+          <div>
+            <span class="profile-stat-value" id="js-following-count">0</span>
+            <span class="profile-stat-label">Following</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="edit-profile-box" id="js-edit-profile-box">
+      <form id="js-edit-profile-form">
+        <img class="edit-profile-avatar-preview" id="js-edit-avatar-preview" alt="New profile picture preview">
+
+        <div class="edit-profile-field">
+          <label class="edit-profile-label" for="js-edit-avatar-input">Profile Picture</label>
+          <input type="file" accept="image/*" id="js-edit-avatar-input">
+        </div>
+
+        <div class="edit-profile-field">
+          <label class="edit-profile-label" for="js-edit-bio-input">Bio</label>
+          <textarea
+            class="edit-profile-textarea"
+            id="js-edit-bio-input"
+            maxlength="200"
+            placeholder="Tell people about yourself..."
+          ></textarea>
+        </div>
+
+        <div class="edit-profile-actions">
+          <button type="submit" class="edit-profile-save-button" id="js-save-profile-button">
+            Save Changes
+          </button>
+          <button type="button" class="edit-profile-cancel-button" id="js-cancel-edit-button">
+            Cancel
+          </button>
+        </div>
+      </form>
+    </section>
+
+    <h2 class="profile-posts-heading">Posts</h2>
+    <section class="profile-posts-list" id="js-profile-posts-list"></section>
+
+  </main>
+
+  <script type="module" src="scripts/profile.js"></script>
+</body>
+</html>

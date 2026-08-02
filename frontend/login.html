@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MiniSocial - Log In</title>
+
+  <link rel="stylesheet" href="styles/shared/reset.css">
+  <link rel="stylesheet" href="styles/shared/variables.css">
+  <link rel="stylesheet" href="styles/shared/components.css">
+  <link rel="stylesheet" href="styles/pages/login.css">
+</head>
+<body>
+
+  <main class="auth-page">
+    <div class="auth-card">
+      <div class="auth-logo">MiniSocial</div>
+
+      <div class="error-banner" id="js-error-banner"></div>
+
+      <form id="js-login-form">
+        <div class="auth-field">
+          <label class="auth-label" for="js-username-input">Username</label>
+          <input
+            type="text"
+            class="auth-input"
+            id="js-username-input"
+            placeholder="Enter your username"
+            autocomplete="username"
+            required
+          >
+        </div>
+
+        <div class="auth-field">
+          <label class="auth-label" for="js-password-input">Password</label>
+          <input
+            type="password"
+            class="auth-input"
+            id="js-password-input"
+            placeholder="Enter your password"
+            autocomplete="current-password"
+            required
+          >
+        </div>
+
+        <button type="submit" class="auth-submit-button" id="js-login-button">
+          Log In
+        </button>
+      </form>
+
+      <p class="auth-switch-text">
+        Don't have an account?
+        <a href="register.html" class="auth-switch-link">Sign up</a>
+      </p>
+    </div>
+  </main>
+
+  <script type="module" src="scripts/login.js"></script>
+</body>
+</html>

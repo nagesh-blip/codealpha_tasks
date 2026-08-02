@@ -1,0 +1,120 @@
+.header {
+  background-color: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header-content {
+  max-width: var(--page-max-width);
+  margin: 0 auto;
+  padding: var(--space-sm) var(--space-md);
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.header-logo {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--color-primary);
+  white-space: nowrap;
+}
+
+.header-search {
+  flex: 1;
+  position: relative;
+}
+
+.header-search-input {
+  width: 100%;
+  padding: var(--space-sm) var(--space-md);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  background-color: var(--color-background);
+}
+
+.header-search-input:focus {
+  outline: 2px solid var(--color-primary);
+}
+
+.header-search-results {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  right: 0;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-card);
+  max-height: 320px;
+  overflow-y: auto;
+  display: none;
+}
+
+.header-search-results.header-search-results-visible {
+  display: block;
+}
+
+.header-search-result {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-sm) var(--space-md);
+}
+
+.header-search-result:hover {
+  background-color: var(--color-background);
+}
+
+.header-search-result-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-round);
+  object-fit: cover;
+  background-color: var(--color-border);
+}
+
+.header-search-empty {
+  padding: var(--space-md);
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+}
+
+.header-nav {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  white-space: nowrap;
+}
+
+.header-nav-link {
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: var(--radius);
+  font-weight: 600;
+  color: var(--color-text-muted);
+}
+
+.header-nav-link:hover {
+  background-color: var(--color-background);
+  color: var(--color-text);
+}
+
+.header-logout-button {
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: var(--radius);
+  background-color: var(--color-background);
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.header-logout-button:hover {
+  background-color: var(--color-border);
+}
+
+@media (max-width: 480px) {
+  .header-logo {
+    display: none;
+  }
+}

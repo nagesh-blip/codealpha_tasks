@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MiniSocial - Home</title>
+
+  <link rel="stylesheet" href="styles/shared/reset.css">
+  <link rel="stylesheet" href="styles/shared/variables.css">
+  <link rel="stylesheet" href="styles/shared/header.css">
+  <link rel="stylesheet" href="styles/shared/components.css">
+  <link rel="stylesheet" href="styles/pages/home.css">
+</head>
+<body>
+
+  <header class="header">
+    <div class="header-content">
+      <a href="index.html" class="header-logo">MiniSocial</a>
+
+      <div class="header-search">
+        <input
+          type="text"
+          class="header-search-input"
+          id="js-search-input"
+          placeholder="Search users..."
+          autocomplete="off"
+        >
+        <div class="header-search-results" id="js-search-results"></div>
+      </div>
+
+      <nav class="header-nav">
+        <a href="index.html" class="header-nav-link">Home</a>
+        <a href="profile.html" class="header-nav-link" id="js-my-profile-link">Profile</a>
+        <button class="header-logout-button" id="js-logout-button">Log Out</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page-content">
+
+    <div class="error-banner" id="js-error-banner"></div>
+
+    <section class="create-post-box">
+      <form id="js-create-post-form">
+        <textarea
+          class="create-post-textarea"
+          id="js-post-caption-input"
+          placeholder="What's on your mind?"
+          maxlength="500"
+        ></textarea>
+
+        <img class="create-post-image-preview" id="js-post-image-preview">
+
+        <div class="create-post-footer">
+          <div>
+            <label class="create-post-image-label" for="js-post-image-input">📷 Add Photo</label>
+            <input type="file" accept="image/*" class="create-post-image-input" id="js-post-image-input">
+            <span class="create-post-image-filename" id="js-post-image-filename"></span>
+          </div>
+
+          <button type="submit" class="create-post-submit-button" id="js-post-submit-button">
+            Post
+          </button>
+        </div>
+      </form>
+    </section>
+
+    <div class="spinner" id="js-loading-spinner"></div>
+
+    <section class="posts-list" id="js-posts-list"></section>
+
+  </main>
+
+  <script type="module" src="scripts/home.js"></script>
+</body>
+</html>

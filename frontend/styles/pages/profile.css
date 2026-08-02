@@ -1,0 +1,193 @@
+.page-content {
+  max-width: var(--page-max-width);
+  margin: 0 auto;
+  padding: var(--space-md);
+}
+
+/* ---------- Profile header ---------- */
+
+.profile-header {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-card);
+  padding: var(--space-lg);
+  display: flex;
+  gap: var(--space-lg);
+  align-items: center;
+  margin-bottom: var(--space-lg);
+}
+
+.profile-avatar {
+  width: 88px;
+  height: 88px;
+  border-radius: var(--radius-round);
+  object-fit: cover;
+  background-color: var(--color-border);
+  flex-shrink: 0;
+}
+
+.profile-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.profile-username-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  flex-wrap: wrap;
+}
+
+.profile-username {
+  font-size: 1.25rem;
+  font-weight: 800;
+}
+
+.profile-bio {
+  margin-top: var(--space-xs);
+  color: var(--color-text-muted);
+}
+
+.profile-stats {
+  display: flex;
+  gap: var(--space-lg);
+  margin-top: var(--space-sm);
+}
+
+.profile-stat-value {
+  font-weight: 700;
+}
+
+.profile-stat-label {
+  color: var(--color-text-muted);
+  font-size: 0.85rem;
+}
+
+.profile-follow-button {
+  padding: var(--space-xs) var(--space-md);
+  border-radius: var(--radius);
+  background-color: var(--color-primary);
+  color: white;
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+.profile-follow-button:hover {
+  background-color: var(--color-primary-dark);
+}
+
+.profile-follow-button.profile-follow-button-following {
+  background-color: var(--color-background);
+  color: var(--color-text);
+  border: 1px solid var(--color-border);
+}
+
+.profile-edit-button {
+  padding: var(--space-xs) var(--space-md);
+  border-radius: var(--radius);
+  background-color: var(--color-background);
+  border: 1px solid var(--color-border);
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+.profile-edit-button:hover {
+  background-color: var(--color-border);
+}
+
+/* ---------- Edit profile form ---------- */
+
+.edit-profile-box {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-card);
+  padding: var(--space-lg);
+  margin-bottom: var(--space-lg);
+  display: none;
+}
+
+.edit-profile-box.edit-profile-box-visible {
+  display: block;
+}
+
+.edit-profile-field {
+  margin-bottom: var(--space-md);
+}
+
+.edit-profile-label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: var(--space-xs);
+  color: var(--color-text-muted);
+}
+
+.edit-profile-textarea {
+  width: 100%;
+  min-height: 60px;
+  padding: var(--space-sm);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  resize: vertical;
+}
+
+.edit-profile-textarea:focus {
+  outline: 2px solid var(--color-primary);
+}
+
+.edit-profile-avatar-preview {
+  width: 64px;
+  height: 64px;
+  border-radius: var(--radius-round);
+  object-fit: cover;
+  background-color: var(--color-background);
+  margin-bottom: var(--space-sm);
+}
+
+.edit-profile-actions {
+  display: flex;
+  gap: var(--space-sm);
+}
+
+.edit-profile-save-button {
+  padding: var(--space-sm) var(--space-lg);
+  background-color: var(--color-primary);
+  color: white;
+  border-radius: var(--radius);
+  font-weight: 700;
+}
+
+.edit-profile-save-button:hover {
+  background-color: var(--color-primary-dark);
+}
+
+.edit-profile-cancel-button {
+  padding: var(--space-sm) var(--space-lg);
+  background-color: var(--color-background);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  font-weight: 700;
+}
+
+.edit-profile-cancel-button:hover {
+  background-color: var(--color-border);
+}
+
+/* ---------- Posts grid ---------- */
+
+.profile-posts-heading {
+  font-weight: 700;
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  margin-bottom: var(--space-sm);
+}
+
+.profile-posts-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
