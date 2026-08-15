@@ -1,0 +1,6 @@
+/* Page-specific tweaks for dashboard.html */
+
+.dashboard-intro {
+  color: var(--color-text-muted);
+  margin-bottom: 0;
+}

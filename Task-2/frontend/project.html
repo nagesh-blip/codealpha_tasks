@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project — Project Board</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles/shared/base.css">
+  <link rel="stylesheet" href="styles/shared/components.css">
+  <link rel="stylesheet" href="styles/pages/project.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="navbar-inner">
+      <a href="dashboard.html" class="navbar-brand">Project Board</a>
+      <div class="navbar-links">
+        <a href="dashboard.html">Dashboard</a>
+        <a href="profile.html">Profile</a>
+        <div class="navbar-user">
+          <div class="navbar-avatar" id="nav-avatar">?</div>
+          <button type="button" class="btn-text" id="logout-btn" style="color:#fff;">Log out</button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main class="page-main">
+    <div class="container">
+      <div id="page-alert" class="alert alert-error" role="alert"></div>
+      <div id="loading" class="loading-state">Loading project&hellip;</div>
+
+      <div id="project-content" style="display:none;">
+        <div class="page-header">
+          <div>
+            <div class="eyebrow">Project</div>
+            <div class="project-title-row">
+              <h1 id="project-name">&nbsp;</h1>
+            </div>
+            <p id="project-description" class="dashboard-intro">&nbsp;</p>
+            <div class="members-bar">
+              <div class="member-stack" id="member-stack"></div>
+              <span id="member-count-label"></span>
+              <button type="button" class="btn-text" id="manage-members-btn">Manage members</button>
+            </div>
+          </div>
+          <div class="project-header-actions">
+            <button type="button" class="btn btn-secondary" id="edit-project-btn">Edit project</button>
+            <button type="button" class="btn" id="add-task-btn">+ Add task</button>
+          </div>
+        </div>
+
+        <div class="board">
+          <div class="board-column" data-status="todo">
+            <div class="board-column-header">
+              <h3>To Do</h3>
+              <span class="board-count" id="count-todo">0</span>
+            </div>
+            <div class="board-column-body" id="column-todo"></div>
+          </div>
+          <div class="board-column" data-status="in_progress">
+            <div class="board-column-header">
+              <h3>In Progress</h3>
+              <span class="board-count" id="count-in_progress">0</span>
+            </div>
+            <div class="board-column-body" id="column-in_progress"></div>
+          </div>
+          <div class="board-column" data-status="done">
+            <div class="board-column-header">
+              <h3>Done</h3>
+              <span class="board-count" id="count-done">0</span>
+            </div>
+            <div class="board-column-body" id="column-done"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Task modal: used for both creating and editing a task -->
+  <div class="modal-overlay" id="task-modal-overlay">
+    <div class="modal">
+      <div class="modal-header">
+        <h2 id="task-modal-title">New task</h2>
+        <button type="button" class="modal-close" id="task-modal-close" aria-label="Close">&times;</button>
+      </div>
+      <div id="task-form-alert" class="alert alert-error" role="alert"></div>
+
+      <form id="task-form" novalidate>
+        <div class="field">
+          <label for="task-title">Title</label>
+          <input type="text" id="task-title" maxlength="200" required>
+        </div>
+        <div class="field">
+          <label for="task-description">Description</label>
+          <textarea id="task-description" placeholder="Optional details"></textarea>
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label for="task-status">Status</label>
+            <select id="task-status">
+              <option value="todo">To Do</option>
+              <option value="in_progress">In Progress</option>
+              <option value="done">Done</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="task-priority">Priority</label>
+            <select id="task-priority">
+              <option value="low">Low</option>
+              <option value="medium" selected>Medium</option>
+              <option value="high">High</option>
+            </select>
+          </div>
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label for="task-due-date">Due date</label>
+            <input type="date" id="task-due-date">
+          </div>
+          <div class="field">
+            <label for="task-assignee">Assigned to</label>
+            <select id="task-assignee">
+              <option value="">Unassigned</option>
+            </select>
+          </div>
+        </div>
+
+        <div id="task-comments-section" style="display:none;">
+          <h3>Comments</h3>
+          <div id="comment-list" class="comment-list"></div>
+<div id="comment-form" class="comment-form">
+  <textarea id="comment-input" placeholder="Add a comment&hellip;" required></textarea>
+  <button type="button" class="btn btn-sm" id="comment-post-btn">Post</button>
+</div>        </div>
+
+        <div class="modal-actions-split">
+          <button type="button" class="btn btn-danger" id="task-delete-btn" style="display:none;">Delete task</button>
+          <div class="modal-actions" style="margin-top:0;">
+            <button type="button" class="btn btn-secondary" id="task-cancel-btn">Cancel</button>
+            <button type="submit" class="btn" id="task-save-btn">Save task</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Members modal -->
+  <div class="modal-overlay" id="members-modal-overlay">
+    <div class="modal">
+      <div class="modal-header">
+        <h2>Project members</h2>
+        <button type="button" class="modal-close" id="members-modal-close" aria-label="Close">&times;</button>
+      </div>
+      <div id="members-form-alert" class="alert alert-error" role="alert"></div>
+      <div id="members-list"></div>
+      <form id="add-member-form" style="margin-top: var(--space-4); display:flex; gap: var(--space-3); align-items:flex-end;">
+        <div class="field" style="flex:1; margin-bottom:0;">
+          <label for="new-member-username">Add member by username</label>
+          <input type="text" id="new-member-username" placeholder="username">
+        </div>
+        <button type="submit" class="btn">Add</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Edit project modal -->
+  <div class="modal-overlay" id="edit-project-modal-overlay">
+    <div class="modal">
+      <div class="modal-header">
+        <h2>Edit project</h2>
+        <button type="button" class="modal-close" id="edit-project-modal-close" aria-label="Close">&times;</button>
+      </div>
+      <div id="edit-project-alert" class="alert alert-error" role="alert"></div>
+      <form id="edit-project-form" novalidate>
+        <div class="field">
+          <label for="edit-project-name">Project name</label>
+          <input type="text" id="edit-project-name" maxlength="200" required>
+        </div>
+        <div class="field">
+          <label for="edit-project-description">Description</label>
+          <textarea id="edit-project-description"></textarea>
+        </div>
+        <div class="modal-actions-split">
+          <button type="button" class="btn btn-danger" id="delete-project-btn">Delete project</button>
+          <div class="modal-actions" style="margin-top:0;">
+            <button type="button" class="btn btn-secondary" id="edit-project-cancel-btn">Cancel</button>
+            <button type="submit" class="btn" id="edit-project-save-btn">Save changes</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="scripts/api.js"></script>
+  <script src="scripts/project.js"></script>
+</body>
+</html>

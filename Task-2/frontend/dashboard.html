@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard — Project Board</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles/shared/base.css">
+  <link rel="stylesheet" href="styles/shared/components.css">
+  <link rel="stylesheet" href="styles/pages/dashboard.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="navbar-inner">
+      <a href="dashboard.html" class="navbar-brand">Project Board</a>
+      <div class="navbar-links">
+        <a href="dashboard.html">Dashboard</a>
+        <a href="profile.html">Profile</a>
+        <div class="navbar-user">
+          <div class="navbar-avatar" id="nav-avatar">?</div>
+          <button type="button" class="btn-text" id="logout-btn" style="color:#fff;">Log out</button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main class="page-main">
+    <div class="container">
+      <div id="page-alert" class="alert alert-error" role="alert"></div>
+
+      <div class="page-header">
+        <div>
+          <div class="eyebrow">Overview</div>
+          <h1 id="welcome-heading">Your projects</h1>
+          <p class="dashboard-intro">Everything you own or have been added to.</p>
+        </div>
+        <button type="button" class="btn" id="new-project-btn">+ New project</button>
+      </div>
+
+      <div id="loading" class="loading-state">Loading projects&hellip;</div>
+
+      <div id="empty-state" class="empty-state" style="display:none;">
+        <h3>No projects yet</h3>
+        <p>Create your first project to start tracking tasks with your team.</p>
+        <button type="button" class="btn" id="empty-new-project-btn">+ New project</button>
+      </div>
+
+      <div id="project-grid" class="project-grid"></div>
+    </div>
+  </main>
+
+  <!-- New project modal -->
+  <div class="modal-overlay" id="project-modal-overlay">
+    <div class="modal">
+      <div class="modal-header">
+        <h2>New project</h2>
+        <button type="button" class="modal-close" id="project-modal-close" aria-label="Close">&times;</button>
+      </div>
+      <div id="project-form-alert" class="alert alert-error" role="alert"></div>
+      <form id="project-form" novalidate>
+        <div class="field">
+          <label for="project-name">Project name</label>
+          <input type="text" id="project-name" name="name" required maxlength="200">
+        </div>
+        <div class="field">
+          <label for="project-description">Description</label>
+          <textarea id="project-description" name="description" placeholder="What is this project about? (optional)"></textarea>
+        </div>
+        <div class="modal-actions">
+          <button type="button" class="btn btn-secondary" id="project-cancel-btn">Cancel</button>
+          <button type="submit" class="btn" id="project-save-btn">Create project</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="scripts/api.js"></script>
+  <script src="scripts/dashboard.js"></script>
+</body>
+</html>

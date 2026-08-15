@@ -1,0 +1,10 @@
+/* Page-specific tweaks for login.html — most styling lives in
+   shared/base.css and shared/components.css (see .auth-shell / .auth-card). */
+
+.auth-card .form-links {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: calc(var(--space-2) * -1);
+  margin-bottom: var(--space-4);
+  font-size: 0.85rem;
+}

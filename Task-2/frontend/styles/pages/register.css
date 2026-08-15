@@ -1,0 +1,5 @@
+/* Page-specific tweaks for register.html */
+
+.auth-card.auth-card-wide {
+  max-width: 460px;
+}

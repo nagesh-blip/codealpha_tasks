@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profile — Project Board</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles/shared/base.css">
+  <link rel="stylesheet" href="styles/shared/components.css">
+  <link rel="stylesheet" href="styles/pages/profile.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="navbar-inner">
+      <a href="dashboard.html" class="navbar-brand">Project Board</a>
+      <div class="navbar-links">
+        <a href="dashboard.html">Dashboard</a>
+        <a href="profile.html">Profile</a>
+        <div class="navbar-user">
+          <div class="navbar-avatar" id="nav-avatar">?</div>
+          <button type="button" class="btn-text" id="logout-btn" style="color:#fff;">Log out</button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main class="page-main">
+    <div class="container" style="max-width: 560px;">
+      <div class="page-header">
+        <div>
+          <div class="eyebrow">Account</div>
+          <h1>Your profile</h1>
+        </div>
+      </div>
+
+      <div class="card card-padded">
+        <div class="profile-avatar-lg" id="profile-avatar">?</div>
+
+        <div id="form-alert" class="alert alert-error" role="alert"></div>
+        <div id="form-success" class="alert alert-success" role="status"></div>
+
+        <form id="profile-form" novalidate>
+          <div class="field">
+            <label for="username">Username</label>
+            <input type="text" id="username" disabled>
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label for="first_name">First name</label>
+              <input type="text" id="first_name" name="first_name">
+            </div>
+            <div class="field">
+              <label for="last_name">Last name</label>
+              <input type="text" id="last_name" name="last_name">
+            </div>
+          </div>
+          <div class="field">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email">
+          </div>
+          <button type="submit" class="btn" id="save-btn">Save changes</button>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <script src="scripts/api.js"></script>
+  <script src="scripts/profile.js"></script>
+</body>
+</html>
