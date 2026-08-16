@@ -129,12 +129,12 @@ REST_FRAMEWORK = {
 CORS_ALLOWED_ORIGINS = [
     "https://codealpha-tasks-five-lac.vercel.app",
     "https://codealpha-tasks-o7pu.vercel.app",
+    "https://codealpha-tasks-bd9c.vercel.app",
 ]
-
 CSRF_TRUSTED_ORIGINS = [
     "https://codealpha-tasks-five-lac.vercel.app",
     "https://codealpha-tasks-o7pu.vercel.app",
+    "https://codealpha-tasks-bd9c.vercel.app",
 ]
-
 # Limit uploaded image size to 5 MB
 FILE_UPLOAD_MAX_MEMORY_SIZE = 5 * 1024 * 1024
