@@ -19,7 +19,7 @@ SECRET_KEY = os.getenv('SECRET_KEY', 'dev-only-insecure-key-change-me')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv('DEBUG', 'True') == 'True'
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['codealpha-tasks-2-backend.onrender.com','localhost', '127.0.0.1']
 
 
 # Application definition
