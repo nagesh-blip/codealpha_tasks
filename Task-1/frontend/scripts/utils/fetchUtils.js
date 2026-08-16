@@ -9,7 +9,6 @@
 */
 
 export const API_BASE_URL = 'https://codealpha-tasks-nw99.onrender.com/api';
-
 export function getAuthToken() {
   return localStorage.getItem('authToken');
 }
