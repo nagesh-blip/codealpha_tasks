@@ -8,8 +8,7 @@
     single, easy-to-read message
 */
 
-export const API_BASE_URL = 'https://codealpha-tasks-nw99.onrender.com/api';
-export function getAuthToken() {
+export const API_BASE_URL = 'https://codealpha-task1-backend.onrender.com/api';export function getAuthToken() {
   return localStorage.getItem('authToken');
 }
 
